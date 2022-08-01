@@ -25,12 +25,12 @@ function EpisodeCard(props: CardType) {
             style={{ width: 300, marginTop: 16, margin: 5 }}
           >
             <Skeleton loading={loading} avatar active>
-            <div className="episodeCard">
-              <h1>{props.name}</h1>
-              <img src={props.imgUrl} />
-              <p dangerouslySetInnerHTML={{__html: props.summary}} ></p>
-              <Rate disabled defaultValue={parseInt(props.rating) || Math.floor(Math.random() * 5) + 1} />
-            </div>
+              <div className="episodeCard">
+                <h1>{props.name}</h1>
+                <img src={props.imgUrl} />
+                <p dangerouslySetInnerHTML={{__html: props.summary}} ></p>
+                <Rate disabled defaultValue={parseInt(props.rating) || Math.floor(Math.random() * 5) + 1} />
+              </div>
             </Skeleton>
           </Card>
         </>
