@@ -1,0 +1,10 @@
+.movie-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.margin-5 {
+    margin: 30px !important;
+}
