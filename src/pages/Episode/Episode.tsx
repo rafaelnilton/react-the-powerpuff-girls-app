@@ -5,13 +5,12 @@ import TVShowService from '../../services/TVShowService';
 import { useParams } from 'react-router-dom';
 import Context from "../../Context";
 
-const { Meta } = Card;
 
 function Episode() {
     const [loading, setLoading] = useState(true);
     const [data, setData] = useState<any>(null)
     let { season, number} = useParams();
-    const [episode, setEpisode] = useContext<any>(Context);
+    const [, setEpisode] = useContext<any>(Context);
 
     useEffect(() => {
         TVShowService.getEpisode(season, number).then(

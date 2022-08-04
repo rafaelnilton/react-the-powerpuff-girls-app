@@ -1,16 +1,13 @@
-import { useContext, useEffect, useState } from 'react';
-import { Typography } from 'antd';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import EpisodeCard from '../../components/EpisodeCard/EpisodeCard';
 import TVShowService from '../../services/TVShowService';
 import './List.css';
-import Context from '../../Context';
-const { Title, Paragraph} = Typography;
 
 function List() {
     const [list, setList] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [episode, setEpisode] = useContext<any>(Context);
+    const [hasError, setHasError] = useState(false)
   
     useEffect(() => {
         TVShowService.getEpisodeList(1).then(
@@ -22,6 +19,7 @@ function List() {
             console.log(error);
             setList([]);
             setLoading(false);
+            setHasError(true)
         }
         );
     }, []);
@@ -29,6 +27,7 @@ function List() {
     return (
         <>
             <div className="movie-grid">
+                {hasError && <p>Sorry, An error has occured.</p>}
                 {loading && <p>Loading...</p>}
                 {!loading &&
                     list.map((episode : any, key) => {

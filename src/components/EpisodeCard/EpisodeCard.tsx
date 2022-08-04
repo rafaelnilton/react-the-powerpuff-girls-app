@@ -2,8 +2,6 @@ import './EpisodeCard.css';
 import { Card, Skeleton, Rate } from 'antd';
 import { useEffect, useState } from 'react';
 
-const { Meta } = Card;
-
 interface CardType {
     name: string,
     summary: string,
